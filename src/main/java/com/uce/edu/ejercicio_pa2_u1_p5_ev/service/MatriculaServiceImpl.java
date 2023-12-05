@@ -55,15 +55,15 @@ public class MatriculaServiceImpl implements IMatriculaService {
         Boolean isLiviano = (vehiculo.getTipo().compareToIgnoreCase("liviano") == 0);
         BigDecimal valorMatricula = vehiculo.getPrecio();
         if (isLiviano) {
-            valorMatricula.multiply(new BigDecimal(0.2));
+            valorMatricula=valorMatricula.multiply(new BigDecimal(0.2f));
         } else {
-            valorMatricula.multiply(new BigDecimal(0.25));
+            valorMatricula=valorMatricula.multiply(new BigDecimal(0.25f));
         }
         if (valorMatricula.compareTo(new BigDecimal(2200)) >= 1)
-            valorMatricula.subtract(valorMatricula.multiply(new BigDecimal(0.05)));
+            valorMatricula=valorMatricula.subtract(valorMatricula.multiply(new BigDecimal(0.05)));
 
         Matricula matricula= new Matricula();
-        matricula.setValorMatricula(vehiculo.getPrecio());
+        matricula.setValorMatricula(valorMatricula);
         matricula.setPropietario(propietario);
         matricula.setVehiculo(vehiculo);
         matricula.setFechaMatricula(LocalDate.now());

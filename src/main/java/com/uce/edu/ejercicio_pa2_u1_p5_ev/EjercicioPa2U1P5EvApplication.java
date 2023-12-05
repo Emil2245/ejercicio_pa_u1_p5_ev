@@ -31,6 +31,8 @@ public class EjercicioPa2U1P5EvApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Propietario propietario = new Propietario();
+        propietario.setNombre("Emil");
+        propietario.setGenero("Masculino");
         propietario.setApellido("Verkade");
         propietario.setCedula("549816516");
 
@@ -43,15 +45,11 @@ public class EjercicioPa2U1P5EvApplication implements CommandLineRunner {
         Vehiculo vehiculo = new Vehiculo();
         vehiculo.setPlaca("88P");
         vehiculo.setTipo("liviano");
-        vehiculo.setPrecio(new BigDecimal(800));
+        vehiculo.setPrecio(new BigDecimal(80000));
         vehiculo.setMarca("Patito");
 
         this.iVehiculoService.guardar(vehiculo);
 
         this.iMatriculaService.registrar(propietario,vehiculo);
-
-
-
-
     }
 }
